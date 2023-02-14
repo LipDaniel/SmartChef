@@ -1,10 +1,10 @@
-extends ../layout
+extends ../shared/userlayout
 
 block header 
-    include ../header 
+    include header 
 
 block banner 
-    include ../banner
+    include banner
 
 block main 
     section#clients.clients.section-bg
@@ -282,5 +282,5 @@ block main
                         .text-center
                             button(type='submit') Send Message
 block footer 
-    include ../footer
+    include footer
     
