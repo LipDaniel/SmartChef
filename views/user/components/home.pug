@@ -1,0 +1,286 @@
+extends ../layout
+
+block header 
+    include ../header 
+
+block banner 
+    include ../banner
+
+block main 
+    section#clients.clients.section-bg
+        .container
+            .row(data-aos='zoom-in')
+                .col-lg-2.col-md-4.col-6.d-flex.align-items-center.justify-content-center
+                    img.img-fluid(src='/assets/img/clients/client-1.png' alt='')
+                .col-lg-2.col-md-4.col-6.d-flex.align-items-center.justify-content-center
+                    img.img-fluid(src='/assets/img/clients/client-2.png' alt='')
+                .col-lg-2.col-md-4.col-6.d-flex.align-items-center.justify-content-center
+                    img.img-fluid(src='/assets/img/clients/client-3.png' alt='')
+                .col-lg-2.col-md-4.col-6.d-flex.align-items-center.justify-content-center
+                    img.img-fluid(src='/assets/img/clients/client-4.png' alt='')
+                .col-lg-2.col-md-4.col-6.d-flex.align-items-center.justify-content-center
+                    img.img-fluid(src='/assets/img/clients/client-5.png' alt='')
+                .col-lg-2.col-md-4.col-6.d-flex.align-items-center.justify-content-center
+                    img.img-fluid(src='/assets/img/clients/client-6.png' alt='')
+    section#about.about
+        .container(data-aos='fade-up')
+            .section-title
+                h2 Giới thiệu
+            .row.content
+                .col-lg-6
+                    p
+                        | Văn hóa tinh thần của người Việt trong ẩm thực chính là sự thể hiện nét đẹp trong văn hóa giao tiếp, là sự cư xử giữa người với người trong bữa ăn, làm vui lòng nhau qua thái độ ứng xử lịch lãm, có giáo dục. Việc ăn uống đều có những phép tắc, lề lối riêng, từ bản thân, đến trong gia đình, rồi các mối quan hệ ngoài xã hội.
+                        | Với 54 dân tộc sống trên nhiều vùng địa lý đa dạng khắp toàn quốc, ẩm thực của mỗi dân tộc trong cộng đồng các dân tộc Việt Nam đều có bản sắc riêng biệt. Rất nhiều món trong số đó ít được biết đến tại các dân tộc khác, như các món thịt lợn sống trộn phèo non của các dân tộc Tây Nguyên. 
+                
+                .col-lg-6.pt-4.pt-lg-0
+                    p
+                        | Tuy nhiên, nhiều món ăn đã trở thành đặc sản trên đất nước Việt Nam và được nhiều người biết đến, như mắm bò hóc miền Nam, bánh cuốn trứng (Cao Bằng, Lạng Sơn), bánh coóng phù (bánh trôi dân tộc Tày, xuất xứ từ bánh trôi tàu của người Hoa), lợn sữa và vịt quay mắc mật (quả mặt), khâu nhục Lạng Sơn (ảnh hưởng từ Quảng Đông, Trung Quốc), phở chua, cháo nhộng ong, phở cốn sủi, thắng cố, các món xôi nếp nương của người Mường, thịt chua Thanh Sơn (Phú Thọ)...
+    section#pricing.pricing
+        .container(data-aos='fade-up')
+            .section-title
+                h2 Pricing
+            .row
+                .col-lg-4.mt-4.mt-lg-0(data-aos='fade-up' data-aos-delay='100')
+                    .box
+                        h3 Member
+                        h4
+                            sup $
+                            | 0
+                            span per month
+                        ul
+                            li
+                                i.bx.bx-check
+                                |  Quam adipiscing vitae proin
+                            li
+                                i.bx.bx-check
+                                |  Nec feugiat nisl pretium
+                            li
+                                i.bx.bx-check
+                                |  Nulla at volutpat diam uteera
+                            li.na
+                                i.bx.bx-x
+                                span Pharetra massa massa ultricies
+                            li.na
+                                i.bx.bx-x
+                                span Massa ultricies mi quis hendrerit
+                        a.buy-btn(href='#') Get Started
+                .col-lg-4.mt-4.mt-lg-0(data-aos='fade-up' data-aos-delay='200')
+                    .box.featured
+                        h3 Profressional
+                        h4
+                            sup $
+                            | 29
+                            span per month
+                        ul
+                            li
+                                i.bx.bx-check
+                                |  Quam adipiscing vitae proin
+                            li
+                                i.bx.bx-check
+                                |  Nec feugiat nisl pretium
+                            li
+                                i.bx.bx-check
+                                |  Nulla at volutpat diam uteera
+                            li
+                                i.bx.bx-check
+                                |  Pharetra massa massa ultricies
+                            li
+                                i.bx.bx-check
+                                |  Massa ultricies mi quis hendrerit
+                        a.buy-btn(href='#') Get Started
+                .col-lg-4.mt-4.mt-lg-0(data-aos='fade-up' data-aos-delay='300')
+                    .box
+                        h3 Enterprise
+                        h4
+                            sup $
+                            | 49
+                            span per month
+                        ul
+                            li
+                                i.bx.bx-check
+                                |  Quam adipiscing vitae proin
+                            li
+                                i.bx.bx-check
+                                |  Nec feugiat nisl pretium
+                            li
+                                i.bx.bx-check
+                                |  Nulla at volutpat diam uteera
+                            li
+                                i.bx.bx-check
+                                |  Pharetra massa massa ultricies
+                            li
+                                i.bx.bx-check
+                                |  Massa ultricies mi quis hendrerit
+                        a.buy-btn(href='#') Get Started
+    section#team.team.section-bg
+        .container(data-aos='fade-up')
+            .section-title
+                h2 Feedback
+                p
+                    | Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+            .row
+                .col-lg-6
+                    .member.d-flex.align-items-start(data-aos='zoom-in' data-aos-delay='100')
+                        .pic
+                            img.img-fluid(src='assets/img/team/team-1.jpg' alt='')
+                        .member-info
+                            h4 Walter White
+                            span Chief Executive Officer
+                            p Explicabo voluptatem mollitia et repellat qui dolorum quasi
+                            .social
+                                a(href='')
+                                    i.ri-twitter-fill
+                                a(href='')
+                                    i.ri-facebook-fill
+                                a(href='')
+                                    i.ri-instagram-fill
+                                a(href='')
+                                    i.ri-linkedin-box-fill
+                .col-lg-6.mt-4.mt-lg-0
+                    .member.d-flex.align-items-start(data-aos='zoom-in' data-aos-delay='200')
+                        .pic
+                            img.img-fluid(src='assets/img/team/team-2.jpg' alt='')
+                        .member-info
+                            h4 Sarah Jhonson
+                            span Product Manager
+                            p Aut maiores voluptates amet et quis praesentium qui senda para
+                            .social
+                                a(href='')
+                                    i.ri-twitter-fill
+                                a(href='')
+                                    i.ri-facebook-fill
+                                a(href='')
+                                    i.ri-instagram-fill
+                                a(href='')
+                                    i.ri-linkedin-box-fill
+                .col-lg-6.mt-4
+                    .member.d-flex.align-items-start(data-aos='zoom-in' data-aos-delay='300')
+                        .pic
+                            img.img-fluid(src='assets/img/team/team-3.jpg' alt='')
+                        .member-info
+                            h4 William Anderson
+                            span CTO
+                            p Quisquam facilis cum velit laborum corrupti fuga rerum quia
+                            .social
+                                a(href='')
+                                    i.ri-twitter-fill
+                                a(href='')
+                                    i.ri-facebook-fill
+                                a(href='')
+                                    i.ri-instagram-fill
+                                a(href='')
+                                    i.ri-linkedin-box-fill
+                .col-lg-6.mt-4
+                    .member.d-flex.align-items-start(data-aos='zoom-in' data-aos-delay='400')
+                        .pic
+                            img.img-fluid(src='assets/img/team/team-4.jpg' alt='')
+                        .member-info
+                            h4 Amanda Jepson
+                            span Accountant
+                            p Dolorum tempora officiis odit laborum officiis et et accusamus
+                            .social
+                                a(href='')
+                                    i.ri-twitter-fill
+                                a(href='')
+                                    i.ri-facebook-fill
+                                a(href='')
+                                    i.ri-instagram-fill
+                                a(href='')
+                                    i.ri-linkedin-box-fill
+    section#faq.faq.section-bg
+        .container(data-aos='fade-up')
+            .section-title
+                h2 FAQ
+            .faq-list
+                ul
+                    li(data-aos='fade-up' data-aos-delay='100')
+                        i.bx.bx-help-circle.icon-help
+                        a.collapse(data-bs-toggle='collapse' data-bs-target='#faq-list-1')
+                            | Non consectetur a erat nam at lectus urna duis? 
+                            i.bx.bx-chevron-down.icon-show
+                            i.bx.bx-chevron-up.icon-close
+                        #faq-list-1.collapse.show(data-bs-parent='.faq-list')
+                            p
+                                | Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                    li(data-aos='fade-up' data-aos-delay='200')
+                        i.bx.bx-help-circle.icon-help
+                        a.collapsed(data-bs-toggle='collapse' data-bs-target='#faq-list-2')
+                            | Feugiat scelerisque varius morbi enim nunc? 
+                            i.bx.bx-chevron-down.icon-show
+                            i.bx.bx-chevron-up.icon-close
+                        #faq-list-2.collapse(data-bs-parent='.faq-list')
+                            p
+                                | Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                    li(data-aos='fade-up' data-aos-delay='300')
+                        i.bx.bx-help-circle.icon-help
+                        a.collapsed(data-bs-toggle='collapse' data-bs-target='#faq-list-3')
+                            | Dolor sit amet consectetur adipiscing elit? 
+                            i.bx.bx-chevron-down.icon-show
+                            i.bx.bx-chevron-up.icon-close
+                        #faq-list-3.collapse(data-bs-parent='.faq-list')
+                            p
+                                | Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                    li(data-aos='fade-up' data-aos-delay='400')
+                        i.bx.bx-help-circle.icon-help
+                        a.collapsed(data-bs-toggle='collapse' data-bs-target='#faq-list-4')
+                            | Tempus quam pellentesque nec nam aliquam sem et tortor consequat? 
+                            i.bx.bx-chevron-down.icon-show
+                            i.bx.bx-chevron-up.icon-close
+                        #faq-list-4.collapse(data-bs-parent='.faq-list')
+                            p
+                                | Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
+                    li(data-aos='fade-up' data-aos-delay='500')
+                        i.bx.bx-help-circle.icon-help
+                        a.collapsed(data-bs-toggle='collapse' data-bs-target='#faq-list-5')
+                            | Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? 
+                            i.bx.bx-chevron-down.icon-show
+                            i.bx.bx-chevron-up.icon-close
+                        #faq-list-5.collapse(data-bs-parent='.faq-list')
+                            p
+                                | Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
+    section#contact.contact
+        .container(data-aos='fade-up')
+            .section-title
+                h2 Contact
+                p
+                    | Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+            .row
+                .col-lg-5.d-flex.align-items-stretch
+                    .info
+                        .address
+                            i.bi.bi-geo-alt
+                            h4 Location:
+                            p A108 Adam Street, New York, NY 535022
+                        .email
+                            i.bi.bi-envelope
+                            h4 Email:
+                            p info@example.com
+                        .phone
+                            i.bi.bi-phone
+                            h4 Call:
+                            p +1 5589 55488 55s
+                        iframe(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621' frameborder='0' style='border:0; width: 100%; height: 290px;' allowfullscreen='')
+                .col-lg-7.mt-5.mt-lg-0.d-flex.align-items-stretch
+                    form.php-email-form(action='forms/contact.php' method='post' role='form')
+                        .row
+                            .form-group.col-md-6
+                                label(for='name') Your Name
+                                input#name.form-control(type='text' name='name' required='')
+                            .form-group.col-md-6
+                                label(for='name') Your Email
+                                input#email.form-control(type='email' name='email' required='')
+                        .form-group
+                            label(for='name') Subject
+                            input#subject.form-control(type='text' name='subject' required='')
+                        .form-group
+                            label(for='name') Message
+                            textarea.form-control(name='message' rows='10' required='')
+                        .my-3
+                            .loading Loading
+                            .error-message
+                            .sent-message Your message has been sent. Thank you!
+                        .text-center
+                            button(type='submit') Send Message
+block footer 
+    include ../footer
+    

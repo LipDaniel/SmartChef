@@ -1,0 +1,86 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(content='width=device-width, initial-scale=1.0' name='viewport')
+  title Login
+  meta(content='' name='description')
+  meta(content='' name='keywords')
+  link(href='/assets/img/favicon.png' rel='icon')
+  link(href='/assets/img/apple-touch-icon.png' rel='apple-touch-icon')
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i' rel='stylesheet')
+  link(href='/assets/vendor/aos/aos.css' rel='stylesheet')
+  link(href='/assets/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet')
+  link(href='/assets/vendor/bootstrap-icons/bootstrap-icons.css' rel='stylesheet')
+  link(href='/assets/vendor/boxicons/css/boxicons.min.css' rel='stylesheet')
+  link(href='/assets/vendor/glightbox/css/glightbox.min.css' rel='stylesheet')
+  link(href='/assets/vendor/remixicon/remixicon.css' rel='stylesheet')
+  link(href='/assets/vendor/swiper/swiper-bundle.min.css' rel='stylesheet')
+  link(href='/assets/css/style.css' rel='stylesheet')
+
+body#bg-login  
+  .container(style='height: 100vh')
+    .row.justify-content-center
+      .col-xl-6.col-lg-12.col-md-9#loginform
+        .card.o-hidden.border-0.shadow.my-5
+          .card-body.p-0
+            .row.justify-content-md-center
+              .col-lg-12
+                .p-5
+                  .text-center
+                    h1.h4.text-gray-900.mb-4 ĐĂNG NHẬP
+                  .user
+                    .form-group.mb-2
+                      input#lip.form-control.form-control-user(type='emailLogin' placeholder='Nhập email hoặc số điện thoại')
+                    .form-group.mb-2
+                      input#lip.form-control.form-control-user(type='password' placeholder='Nhập mật khẩu')
+                    .form-group
+                      .custom-control.custom-checkbox.small
+                        input#customCheck(type='checkbox' classname='custom-control-input')
+                        label.custom-control-label.mt-2(htmlfor='customCheck') Remember Me
+                    button.btn.btn-primary.btn-user.btn-block.mt-3.w-100#lip
+                      | Gét Gô
+                  hr
+                  .text-center
+                    a.small(href='/') Trang chủ
+                  .text-center
+                    a.small#register(href='#' onclick='showRegister()') Đăng ký tài khoản
+      .col-xl-6.col-lg-12.col-md-9#registerform(style='display: none')
+          .card.o-hidden.border-0.shadow.my-5
+            .card-body.p-0
+              .row.justify-content-md-center
+                .col-lg-12
+                  .p-5
+                    .text-center
+                      h1.h4.text-gray-900.mb-4 ĐĂNG KÝ
+                    .user
+                      .form-group.mb-2
+                        input#lip.form-control.form-control-user(type='emailLogin' placeholder='Nhập email hoặc số điện thoại')
+                      .form-group.mb-2
+                        input#lip.form-control.form-control-user(type='password' placeholder='Nhập mật khẩu')
+                      .form-group.mb-2
+                        input#lip.form-control.form-control-user(type='password' placeholder='Nhập lại mật khẩu')
+                      .form-group
+                        .custom-control.custom-checkbox.small
+                          input#customCheck(type='checkbox' classname='custom-control-input')
+                          label.custom-control-label.mt-2(htmlfor='customCheck') Remember Me
+                      button.btn.btn-primary.btn-user.btn-block.mt-3.w-100#lip
+                        | Đăng ký Ahihi
+                    hr
+                    .text-center
+                      a.small(href='/') Trang chủ
+                    .text-center
+                      a.small#login(href='#' onclick='showLogin()') Quay lại đăng nhập
+
+  script(src='/assets/vendor/aos/aos.js')
+  script(src='/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')
+  script(src='/assets/vendor/glightbox/js/glightbox.min.js')
+  script(src='/assets/vendor/isotope-layout/isotope.pkgd.min.js')
+  script(src='/assets/vendor/swiper/swiper-bundle.min.js')
+  script(src='/assets/vendor/waypoints/noframework.waypoints.js')
+  script(src='/assets/vendor/php-email-form/validate.js')
+  script(src='/assets/js/main.js')
+  script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type="text/javascript")
+
+
+
+  
