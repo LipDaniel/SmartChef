@@ -229,16 +229,3 @@ block Content
                             a.m-0.small.text-primary.card-link(href='#')
                                 | View More 
                                 i.fas.fa-chevron-right
-
-        #logoutModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabelLogout' aria-hidden='true')
-            .modal-dialog(role='document')
-                .modal-content
-                    .modal-header
-                        h5#exampleModalLabelLogout.modal-title Ohh No!
-                        button.close(type='button' data-dismiss='modal' aria-label='Close')
-                            span(aria-hidden='true') &times;
-                    .modal-body
-                        p Are you sure you want to logout?
-                    .modal-footer
-                        button.btn.btn-outline-primary(type='button' data-dismiss='modal') Cancel
-                        a.btn.btn-primary(href='login.html') Logout

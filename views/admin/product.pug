@@ -1,89 +1,117 @@
 extends ../shared/adminlayout
 
 block Content
+    style.
+        #btnAdd{
+            background: #b5b5b5;
+            color: white;
+            width: 120px;
+            height: 135px;
+            font-size: 100px;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            border-radius: 100%
+        }
+        #formAdd{
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: dashed; 
+            border-color: #b5b5b5;
+            border-width: 2px; 
+            border-radius: 20px; 
+            height: 335.59px
+        }
+        #formAdd:hover{
+            background: #dddddd;
+            border-style: none;
+            cursor: pointer
+        }
     #container-wrapper.container-fluid
-        .d-sm-flex.align-items-center.justify-content-between.mb-4
-            h1.h3.mb-0.text-gray-800 DataTables
-            ol.breadcrumb
+        .d-sm-flex.align-items-center.justify-content-between.mb-3
+            h1.h3.mb-0.text-gray-800 Products
+            ol.breadcrumb.align-items-center
                 li.breadcrumb-item
-                    a(href='./') Home
-                li.breadcrumb-item Tables
-                li.breadcrumb-item.active(aria-current='page') DataTables
-        .row
-            .col-lg-12
-                .card.mb-4
-                    .card-header.py-3.d-flex.flex-row.align-items-center.justify-content-between
-                        h6.m-0.font-weight-bold.text-primary DataTables
-                    .table-responsive.p-3
-                        table#dataTable.table.align-items-center.table-flush
-                            thead.thead-light
-                                tr
-                                    th Name
-                                    th Position
-                                    th Office
-                                    th Age
-                                    th Start date
-                                    th Salary
-                            tbody
-                                tr
-                                    td Tiger Nixon
-                                    td System Architect
-                                    td Edinburgh
-                                    td 61
-                                    td 2011/04/25
-                                    td $320,800
-                                tr
-                                    td Garrett Winters
-                                    td Accountant
-                                    td Tokyo
-                                    td 63
-                                    td 2011/07/25
-                                    td $170,750
-                                tr
-                                    td Ashton Cox
-                                    td Junior Technical Author
-                                    td San Francisco
-                                    td 66
-                                    td 2009/01/12
-                                    td $86,000
-                                tr
-                                    td Cedric Kelly
-                                    td Senior Javascript Developer
-                                    td Edinburgh
-                                    td 22
-                                    td 2012/03/29
-                                    td $433,060
-                                tr
-                                    td Airi Satou
-                                    td Accountant
-                                    td Tokyo
-                                    td 33
-                                    td 2008/11/28
-                                    td $162,700
-                                tr
-                                    td Brielle Williamson
-                                    td Integration Specialist
-                                    td New York
-                                    td 61
-                                    td 2012/12/02
-                                    td $372,000
-        .row
-            .col-lg-12
-                p
-                    | DataTables is a third party plugin that is used to generate the demo table below. For more information
-                    | about DataTables, please visit the official 
-                    a(href='https://datatables.net/' target='_blank')
-                        | DataTables
-                        | documentation.
-        #logoutModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabelLogout' aria-hidden='true')
+                    a(href='/admin') Home
+                li.breadcrumb-item Product
+        button.btn.btn-success.mb-2 New Product
+        .row.mb-3 
+            .col-md-3 
+                .card.p-4(style='border-radius: 20px; height: 335.59px')
+                    h3.font-weight-bold Member
+                    h5
+                        | Free
+                    ul(style='list-style: none')
+                        li.mb-2
+                            img(src="https://img.icons8.com/color/18/null/checkmark--v3.png")                        
+                            |  Cake Recipe
+                        li.mb-2
+                            img(src="https://img.icons8.com/color/18/null/checkmark--v3.png")   
+                            |  Asian Recipe
+                        li.mb-2
+                            img(src="https://img.icons8.com/emoji/18/null/cross-mark-emoji.png")
+                            |  European Recipe
+                        li.mb-2
+                            img(src="https://img.icons8.com/emoji/18/null/cross-mark-emoji.png")
+                            |  Gloabl Recipe
+                        li
+                            img(src="https://img.icons8.com/emoji/18/null/cross-mark-emoji.png")
+                            |  Message with chef
+                    .row.mt-2
+                        .col-md-6
+                            button.btn.btn-outline-secondary.w-100
+                                img(src="https://img.icons8.com/ios-glyphs/15/A4A4A4/pencil--v2.png")
+                                |  Edit
+                        .col-md-6
+                            button.btn.btn-outline-danger.w-100
+                                img(src="https://img.icons8.com/ios/15/D10404/delete--v3.png")
+                                |  Delete 
+            .col-md-3 
+                #formAdd(data-toggle='modal' data-target='#addProduct')
+                    button.btn#btnAdd +
+        #addProduct.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabelLogout' aria-hidden='true')
             .modal-dialog(role='document')
                 .modal-content
-                    .modal-header
-                        h5#exampleModalLabelLogout.modal-title Ohh No!
-                        button.close(type='button' data-dismiss='modal' aria-label='Close')
-                            span(aria-hidden='true') &times;
-                    .modal-body
-                        p Are you sure you want to logout?
-                    .modal-footer
-                        button.btn.btn-outline-primary(type='button' data-dismiss='modal') Cancel
-                        a.btn.btn-primary(href='login.html') Logout
+                    form(action="/admin/add-product", method="post") 
+                        .modal-header
+                            h5#exampleModalLabelLogout.modal-title New product
+                            button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                span(aria-hidden='true') &times;
+                        .modal-body
+                            .form-group.mb-2
+                                label.mb-1 Tên sản phẩm
+                                input.form-control(type="text" name="name")
+                            .form-group 
+                                label.mb-1 Giá
+                                input.form-control(type="number" name="price")
+                            .row
+                                .col-md-4
+                                    .form-group 
+                                        label.mb-1 Cake recipe
+                                        br
+                                        input(type="checkbox" name="cakere" checked data-toggle="toggle" data-width="120")
+                                .col-md-4
+                                    .form-group 
+                                        label.mb-1 Asian recipe
+                                        br
+                                        input(type="checkbox" name="asianre" checked data-toggle="toggle" data-width="120")
+                                .col-md-4
+                                    .form-group 
+                                        label.mb-1 European recipe
+                                        br
+                                        input(type="checkbox" name="eurore" checked data-toggle="toggle" data-width="120")
+                            .row.justify-content-center
+                                .col-md-4
+                                    .form-group 
+                                        label.mb-1 Global recipe
+                                        br
+                                        input(type="checkbox" name="globalre" checked data-toggle="toggle" data-width="120")
+                                .col-md-4
+                                    .form-group 
+                                        label.mb-1 Message Chef
+                                        br
+                                        input(type="checkbox" name="message" checked data-toggle="toggle" data-width="120")
+                        .modal-footer
+                            button.btn.btn-primary(type='submit') Save

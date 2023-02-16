@@ -11,8 +11,7 @@ head
     link(href='/asset/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css')
     link(href='/asset/css/ruang-admin.min.css' rel='stylesheet')
     link(href='/asset/vendor/datatables/dataTables.bootstrap4.min.css' rel='stylesheet')
-
-
+    link(href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet")
 body#page-top
     #wrapper
         include slidebar 
@@ -20,6 +19,8 @@ body#page-top
             #content
                 include topbar
                 block Content
+    block Modal
+        include logoutmodal
     script(src='/asset/vendor/jquery/jquery.min.js')
     script(src='/asset/vendor/bootstrap/js/bootstrap.bundle.min.js')
     script(src='/asset/vendor/jquery-easing/jquery.easing.min.js')
@@ -28,4 +29,7 @@ body#page-top
     script(src='/asset/js/demo/chart-area-demo.js')
     script(src='/asset/vendor/datatables/jquery.dataTables.min.js')
     script(src='/asset/vendor/datatables/dataTables.bootstrap4.min.js')
+    script(src="https://kit.fontawesome.com/aff0384d2c.js")
+    script(src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js")
+
 
