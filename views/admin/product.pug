@@ -36,7 +36,9 @@ block Content
                 li.breadcrumb-item
                     a(href='/admin') Home
                 li.breadcrumb-item Product
-        button.btn.btn-success.mb-2 New Product
+        each val in dt
+            span #{val.name}
+            br
         .row.mb-3 
             .col-md-3 
                 .card.p-4(style='border-radius: 20px; height: 335.59px')

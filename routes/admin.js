@@ -7,9 +7,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('admin/dashboard');
 });
-router.get('/product', function(req, res, next) {
-  res.render('admin/product');
-});
+router.get('/product', new product_controller().getProduct);
 router.post('/add-product',new product_controller().addProduct)
 
 module.exports = router;

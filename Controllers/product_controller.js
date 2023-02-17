@@ -10,9 +10,25 @@ module.exports = class product_controller {
         var eurore = req.body.eurore == 'on' ? '1' : '0';
         var globalre = req.body.globalre == 'on' ? '1' : '0';
         var message = req.body.message == 'on' ? '1' : '0';
-        var productItem = new product(name, price, cakere, asianre, eurore, globalre, message);
+        if (name != null && price != null){
+            var productItem = new product(name, price, cakere, asianre, eurore, globalre, message);
+            var dao = new productDao();
+            dao.Create(productItem);
+            res.redirect('/admin/product')
+        }else{
+            res.redirect('/admin/product')
+        }
+    }
+
+    getProduct(req, res, next) {
         var dao = new productDao();
-        dao.Create(productItem);
-        res.redirect('/admin/product')
+        dao.All((err, rows) => {
+            if (err) { 
+                console.log(err) 
+            }
+            else {
+                res.render('admin/product', { dt: rows })
+            }
+        });
     }
 }

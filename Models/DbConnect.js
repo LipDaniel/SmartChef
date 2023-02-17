@@ -3,11 +3,12 @@ module.exports = class DbConnect{
     }
     getConnect(){
         this.config= {
-            host:"smartchef.mssql.somee.com",
+            server:"smartchef.mssql.somee.com",
             database:'smartchef',
             user:"nhannguyen_SQLLogin_1",
             password:'4d52kand8k',
             driver: 'mssql',
+            port: 1433,
             rowsAsArray:true
         };
         return this.config;
