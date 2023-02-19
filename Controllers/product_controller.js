@@ -14,7 +14,13 @@ module.exports = class product_controller {
             var productItem = new product(name, price, cakere, asianre, eurore, globalre, message);
             var dao = new productDao();
             dao.Create(productItem);
-            res.redirect('/admin/product')
+            dao.All((err, rows) => {
+                if(err){
+                    console.log(err)
+                }else{
+                    res.redirect('back');
+                }
+            })
         }else{
             res.redirect('/admin/product')
         }
@@ -27,7 +33,8 @@ module.exports = class product_controller {
                 console.log(err) 
             }
             else {
-                res.render('admin/product', { dt: rows })
+                rows.recordset.price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(1000)
+                res.render('admin/product', { dt: rows.recordset })
             }
         });
     }

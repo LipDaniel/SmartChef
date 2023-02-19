@@ -36,41 +36,58 @@ block Content
                 li.breadcrumb-item
                     a(href='/admin') Home
                 li.breadcrumb-item Product
-        each val in dt
-            span #{val.name}
-            br
-        .row.mb-3 
-            .col-md-3 
-                .card.p-4(style='border-radius: 20px; height: 335.59px')
-                    h3.font-weight-bold Member
-                    h5
-                        | Free
-                    ul(style='list-style: none')
-                        li.mb-2
-                            img(src="https://img.icons8.com/color/18/null/checkmark--v3.png")                        
-                            |  Cake Recipe
-                        li.mb-2
-                            img(src="https://img.icons8.com/color/18/null/checkmark--v3.png")   
-                            |  Asian Recipe
-                        li.mb-2
-                            img(src="https://img.icons8.com/emoji/18/null/cross-mark-emoji.png")
-                            |  European Recipe
-                        li.mb-2
-                            img(src="https://img.icons8.com/emoji/18/null/cross-mark-emoji.png")
-                            |  Gloabl Recipe
-                        li
-                            img(src="https://img.icons8.com/emoji/18/null/cross-mark-emoji.png")
-                            |  Message with chef
-                    .row.mt-2
-                        .col-md-6
-                            button.btn.btn-outline-secondary.w-100
-                                img(src="https://img.icons8.com/ios-glyphs/15/A4A4A4/pencil--v2.png")
-                                |  Edit
-                        .col-md-6
-                            button.btn.btn-outline-danger.w-100
-                                img(src="https://img.icons8.com/ios/15/D10404/delete--v3.png")
-                                |  Delete 
-            .col-md-3 
+        .row.mb-3
+            each item in dt 
+                .col-xl-3.col-lg-4.col-md-6.mb-4 
+                    .card.p-4(style='border-radius: 20px; min-height: 335.59px')
+                        h3.font-weight-bold #{item.name}
+                        h5.priceformat #{item.price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})} 
+                        ul(style='list-style: none')
+                            li.mb-2
+                                if item.cake_recipe == 1
+                                    img(src="https://img.icons8.com/color/18/null/checkmark--v3.png")                        
+                                    |  Cake Recipe
+                                else 
+                                    img(src="https://img.icons8.com/emoji/18/null/cross-mark-emoji.png")
+                                    |  Cake Recipe
+                            li.mb-2
+                                if item.asian_recipe == 1
+                                    img(src="https://img.icons8.com/color/18/null/checkmark--v3.png")                        
+                                    |  Asian Recipe
+                                else 
+                                    img(src="https://img.icons8.com/emoji/18/null/cross-mark-emoji.png")
+                                    |  Asian Recipe
+                            li.mb-2
+                                if item.european_recipe == 1
+                                    img(src="https://img.icons8.com/color/18/null/checkmark--v3.png")                        
+                                    |  European Recipe
+                                else 
+                                    img(src="https://img.icons8.com/emoji/18/null/cross-mark-emoji.png")
+                                    |  European Recipe
+                            li.mb-2
+                                if item.global_recipe == 1
+                                    img(src="https://img.icons8.com/color/18/null/checkmark--v3.png")                        
+                                    |  Gloabl Recipe
+                                else 
+                                    img(src="https://img.icons8.com/emoji/18/null/cross-mark-emoji.png")
+                                    |  Global Recipe
+                            li
+                                if item.message_chef == 1
+                                    img(src="https://img.icons8.com/color/18/null/checkmark--v3.png")                        
+                                    |  Message with chef
+                                else 
+                                    img(src="https://img.icons8.com/emoji/18/null/cross-mark-emoji.png")
+                                    |  Message with chef
+                        .row.mt-2
+                            .col-md-6
+                                button.btn.btn-outline-secondary.w-100
+                                    img(src="https://img.icons8.com/ios-glyphs/15/A4A4A4/pencil--v2.png")
+                                    |  Edit
+                            .col-md-6
+                                button.btn.btn-outline-danger.w-100
+                                    img(src="https://img.icons8.com/ios/15/D10404/delete--v3.png")
+                                    |  Delete 
+            .col-xl-3.col-lg-4.col-md-6
                 #formAdd(data-toggle='modal' data-target='#addProduct')
                     button.btn#btnAdd +
         #addProduct.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabelLogout' aria-hidden='true')
@@ -93,27 +110,27 @@ block Content
                                     .form-group 
                                         label.mb-1 Cake recipe
                                         br
-                                        input(type="checkbox" name="cakere" checked data-toggle="toggle" data-width="120")
+                                        input(type="checkbox" name="cakere" data-toggle="toggle" data-width="120")
                                 .col-md-4
                                     .form-group 
                                         label.mb-1 Asian recipe
                                         br
-                                        input(type="checkbox" name="asianre" checked data-toggle="toggle" data-width="120")
+                                        input(type="checkbox" name="asianre" data-toggle="toggle" data-width="120")
                                 .col-md-4
                                     .form-group 
                                         label.mb-1 European recipe
                                         br
-                                        input(type="checkbox" name="eurore" checked data-toggle="toggle" data-width="120")
+                                        input(type="checkbox" name="eurore" data-toggle="toggle" data-width="120")
                             .row.justify-content-center
                                 .col-md-4
                                     .form-group 
                                         label.mb-1 Global recipe
                                         br
-                                        input(type="checkbox" name="globalre" checked data-toggle="toggle" data-width="120")
+                                        input(type="checkbox" name="globalre" data-toggle="toggle" data-width="120")
                                 .col-md-4
                                     .form-group 
                                         label.mb-1 Message Chef
                                         br
-                                        input(type="checkbox" name="message" checked data-toggle="toggle" data-width="120")
+                                        input(type="checkbox" name="message" data-toggle="toggle" data-width="120")
                         .modal-footer
                             button.btn.btn-primary(type='submit') Save

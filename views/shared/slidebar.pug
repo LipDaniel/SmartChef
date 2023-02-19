@@ -27,25 +27,16 @@ ul#accordionSidebar.navbar-nav.sidebar.sidebar-secondary.accordion
     li.nav-item
         a.nav-link.collapsed(href='#' data-toggle='collapse' data-target='#collapseForm' aria-expanded='true' aria-controls='collapseForm')
             i.fab.fa-fw.fa-wpforms
-            span Forms
+            span Post
         #collapseForm.collapse(aria-labelledby='headingForm' data-parent='#accordionSidebar')
             .bg-white.py-2.collapse-inner.rounded
-                h6.collapse-header Forms
-                a.collapse-item(href='form_basics.html') Form Basics
-                a.collapse-item(href='form_advanceds.html') Form Advanceds
-    li.nav-item
-        a.nav-link.collapsed(href='#' data-toggle='collapse' data-target='#collapseTable' aria-expanded='true' aria-controls='collapseTable')
-            i.fas.fa-fw.fa-table
-            span Tables
-        #collapseTable.collapse(aria-labelledby='headingTable' data-parent='#accordionSidebar')
-            .bg-white.py-2.collapse-inner.rounded
-                h6.collapse-header Tables
-                a.collapse-item(href='simple-tables.html') Simple Tables
-                a.collapse-item(href='datatables.html') DataTables
+                h6.collapse-header Post
+                a.collapse-item(href='/admin/allpost') All Post
+                a.collapse-item(href='/admin/post') New Post
     li.nav-item
         a.nav-link(href='/admin/product')
             i.fas.fa-fw.fa-palette
-            span UI Colors
+            span Product
     hr.sidebar-divider
     .sidebar-heading
         | Examples
