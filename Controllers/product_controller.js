@@ -33,7 +33,6 @@ module.exports = class product_controller {
                 console.log(err) 
             }
             else {
-                rows.recordset.price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(1000)
                 res.render('admin/product', { dt: rows.recordset })
             }
         });

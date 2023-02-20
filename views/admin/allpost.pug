@@ -7,45 +7,25 @@ block Content
             table.table.table-hover
                 thead
                     tr 
-                        th #
-                        th Thumbnail 
+                        th(style="width: 15px") #
+                        th(style="width: 15px") Thumbnail 
                         th Title 
-                        th Content 
                         th Category 
                         th Created At
-                tbody 
-                    tr 
-                        td 1
-                        td Image 
-                        td Cach lam banh 
-                        td Viet Nam la mot quoc gia doc lap...  
-                        td Cake Recipe 
-                        td 12/07/2023
-                    tr 
-                        td 1
-                        td Image 
-                        td Cach lam banh 
-                        td Viet Nam la mot quoc gia doc lap...  
-                        td Cake Recipe 
-                        td 12/07/2023
-                    tr 
-                        td 1
-                        td Image 
-                        td Cach lam banh 
-                        td Viet Nam la mot quoc gia doc lap...  
-                        td Cake Recipe 
-                        td 12/07/2023
-                    tr 
-                        td 1
-                        td Image 
-                        td Cach lam banh 
-                        td Viet Nam la mot quoc gia doc lap...  
-                        td Cake Recipe 
-                        td 12/07/2023
-                    tr 
-                        td 1
-                        td Image 
-                        td Cach lam banh 
-                        td Viet Nam la mot quoc gia doc lap...  
-                        td Cake Recipe 
-                        td 12/07/2023
+                        th Action
+                tbody
+                    - i = 1
+                    each item in dt 
+                        tr
+                            td.align-middle=i
+                            td.align-middle 
+                                img.img-fluid(src=item.thumbnail width="100px") 
+                            td.align-middle 
+                                a(href="#") #{item.title} 
+                            td.align-middle #{item.name}
+                            td.align-middle 25/05/2019
+                            td.align-middle 
+                                a.btn.btn-outline-secondary 
+                                    img(src="https://img.icons8.com/ios-glyphs/15/A4A4A4/pencil--v2.png")
+                        - i++
+                    

@@ -40,78 +40,61 @@ block main
             .section-title
                 h2 Pricing
             .row
-                .col-lg-4.mt-4.mt-lg-0(data-aos='fade-up' data-aos-delay='100')
-                    .box
-                        h3 Member
-                        h4
-                            sup $
-                            | 0
-                            span per month
-                        ul
-                            li
-                                i.bx.bx-check
-                                |  Quam adipiscing vitae proin
-                            li
-                                i.bx.bx-check
-                                |  Nec feugiat nisl pretium
-                            li
-                                i.bx.bx-check
-                                |  Nulla at volutpat diam uteera
-                            li.na
-                                i.bx.bx-x
-                                span Pharetra massa massa ultricies
-                            li.na
-                                i.bx.bx-x
-                                span Massa ultricies mi quis hendrerit
-                        a.buy-btn(href='#') Get Started
-                .col-lg-4.mt-4.mt-lg-0(data-aos='fade-up' data-aos-delay='200')
-                    .box.featured
-                        h3 Profressional
-                        h4
-                            sup $
-                            | 29
-                            span per month
-                        ul
-                            li
-                                i.bx.bx-check
-                                |  Quam adipiscing vitae proin
-                            li
-                                i.bx.bx-check
-                                |  Nec feugiat nisl pretium
-                            li
-                                i.bx.bx-check
-                                |  Nulla at volutpat diam uteera
-                            li
-                                i.bx.bx-check
-                                |  Pharetra massa massa ultricies
-                            li
-                                i.bx.bx-check
-                                |  Massa ultricies mi quis hendrerit
-                        a.buy-btn(href='#') Get Started
-                .col-lg-4.mt-4.mt-lg-0(data-aos='fade-up' data-aos-delay='300')
-                    .box
-                        h3 Enterprise
-                        h4
-                            sup $
-                            | 49
-                            span per month
-                        ul
-                            li
-                                i.bx.bx-check
-                                |  Quam adipiscing vitae proin
-                            li
-                                i.bx.bx-check
-                                |  Nec feugiat nisl pretium
-                            li
-                                i.bx.bx-check
-                                |  Nulla at volutpat diam uteera
-                            li
-                                i.bx.bx-check
-                                |  Pharetra massa massa ultricies
-                            li
-                                i.bx.bx-check
-                                |  Massa ultricies mi quis hendrerit
-                        a.buy-btn(href='#') Get Started
+                - delay = 100
+                each item in dt
+                    - price = new Intl.NumberFormat('vi-VN', { maximumSignificantDigits: 3 }).format(item.price)
+                    .col-lg-4.mt-4.mt-lg-0(data-aos='fade-up' data-aos-delay=delay)
+                        .box
+                            h3 #{item.name}
+                            h4
+                                if item.price == 0
+                                    | Free
+                                else 
+                                    | #{price}
+                                    sup  VNĐ
+                            ul
+                                if item.cake_recipe == 0
+                                    li.na
+                                        i.bx.bx-x
+                                        span Cake Recipe
+                                else
+                                    li
+                                        i.bx.bx-check
+                                        |  Cake Recipe
+                                if item.asian_recipe == 0
+                                    li.na
+                                        i.bx.bx-x
+                                        span Asian Recipe
+                                else
+                                    li
+                                        i.bx.bx-check
+                                        |  Asian Recipe
+                                if item.european_recipe == 0
+                                    li.na
+                                        i.bx.bx-x
+                                        span European Recipe
+                                else
+                                    li
+                                        i.bx.bx-check
+                                        |  European Recipe
+                                if item.global_recipe == 0
+                                    li.na
+                                        i.bx.bx-x
+                                        span Global Recipe
+                                else
+                                    li
+                                        i.bx.bx-check
+                                        |  Global Recipe
+                                if item.message_chef == 0
+                                    li.na
+                                        i.bx.bx-x
+                                        span Message Chef 
+                                else
+                                    li
+                                        i.bx.bx-check
+                                        |  Message Chef
+                            a.buy-btn(href='#') Get Started
+                    - delay += 100
     section#team.team.section-bg
         .container(data-aos='fade-up')
             .section-title

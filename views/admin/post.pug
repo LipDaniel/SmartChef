@@ -3,7 +3,7 @@ extends ../shared/adminlayout
 block Content
     .container-fluid
         h2.text-center POST 
-        form(action="add-post" method="POST")
+        form(action="add-post" method="POST" enctype="multipart/form-data")
             .row
                 .col-md-9
                     .card.card-body
@@ -11,7 +11,7 @@ block Content
                             input.form-control(type="text" name="title" placeholder="Title")
                         textarea#editor1(name="content")
                         .form-group.mt-3 
-                            input.form-control(type="file" name="thumbnail" onchange="loadFile(event)" enctype="multipart/form-data")
+                            input.form-control(type="file" name="thumbnail" onchange="loadFile(event)")
                 .col-md-3 
                     .card 
                         .card-header.border-bottom.bg-dark
