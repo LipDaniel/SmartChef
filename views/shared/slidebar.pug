@@ -12,19 +12,6 @@ ul#accordionSidebar.navbar-nav.sidebar.sidebar-secondary.accordion
     .sidebar-heading
         | Features
     li.nav-item
-        a.nav-link.collapsed(href='#' data-toggle='collapse' data-target='#collapseBootstrap' aria-expanded='true' aria-controls='collapseBootstrap')
-            i.far.fa-fw.fa-window-maximize
-            span Bootstrap UI
-        #collapseBootstrap.collapse(aria-labelledby='headingBootstrap' data-parent='#accordionSidebar')
-            .bg-white.py-2.collapse-inner.rounded
-                h6.collapse-header Bootstrap UI
-                a.collapse-item(href='alerts.html') Alerts
-                a.collapse-item(href='buttons.html') Buttons
-                a.collapse-item(href='dropdowns.html') Dropdowns
-                a.collapse-item(href='modals.html') Modals
-                a.collapse-item(href='popovers.html') Popovers
-                a.collapse-item(href='progress-bar.html') Progress Bars
-    li.nav-item
         a.nav-link.collapsed(href='#' data-toggle='collapse' data-target='#collapseForm' aria-expanded='true' aria-controls='collapseForm')
             i.fab.fa-fw.fa-wpforms
             span Post
@@ -37,6 +24,10 @@ ul#accordionSidebar.navbar-nav.sidebar.sidebar-secondary.accordion
         a.nav-link(href='/admin/product')
             i.fas.fa-fw.fa-palette
             span Product
+    li.nav-item
+        a.nav-link(href='/admin/product')
+            i.fas.fa-fw.fa-palette
+            span FAQ
     hr.sidebar-divider
     .sidebar-heading
         | Examples

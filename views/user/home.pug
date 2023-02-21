@@ -7,6 +7,19 @@ block banner
     include banner
 
 block main 
+    style.
+        .badge-secondary {
+            color: #fff;
+            background-color: #6c757d;
+        }
+        .badge-warning {
+            color: #fff;
+            background-color: #ffc107;
+        }
+        .badge-primary {
+            color: #fff;
+            background-color: #007bff;
+        }
     section#clients.clients.section-bg
         .container
             .row(data-aos='zoom-in')
@@ -38,10 +51,10 @@ block main
     section#pricing.pricing
         .container(data-aos='fade-up')
             .section-title
-                h2 Pricing
+                h2 Dịch vụ
             .row
                 - delay = 100
-                each item in dt
+                each item in obj.productData
                     - price = new Intl.NumberFormat('vi-VN', { maximumSignificantDigits: 3 }).format(item.price)
                     .col-lg-4.mt-4.mt-lg-0(data-aos='fade-up' data-aos-delay=delay)
                         .box
@@ -98,78 +111,26 @@ block main
     section#team.team.section-bg
         .container(data-aos='fade-up')
             .section-title
-                h2 Feedback
-                p
-                    | Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
-            .row
-                .col-lg-6
-                    .member.d-flex.align-items-start(data-aos='zoom-in' data-aos-delay='100')
-                        .pic
-                            img.img-fluid(src='assets/img/team/team-1.jpg' alt='')
-                        .member-info
-                            h4 Walter White
-                            span Chief Executive Officer
-                            p Explicabo voluptatem mollitia et repellat qui dolorum quasi
-                            .social
-                                a(href='')
-                                    i.ri-twitter-fill
-                                a(href='')
-                                    i.ri-facebook-fill
-                                a(href='')
-                                    i.ri-instagram-fill
-                                a(href='')
-                                    i.ri-linkedin-box-fill
-                .col-lg-6.mt-4.mt-lg-0
-                    .member.d-flex.align-items-start(data-aos='zoom-in' data-aos-delay='200')
-                        .pic
-                            img.img-fluid(src='assets/img/team/team-2.jpg' alt='')
-                        .member-info
-                            h4 Sarah Jhonson
-                            span Product Manager
-                            p Aut maiores voluptates amet et quis praesentium qui senda para
-                            .social
-                                a(href='')
-                                    i.ri-twitter-fill
-                                a(href='')
-                                    i.ri-facebook-fill
-                                a(href='')
-                                    i.ri-instagram-fill
-                                a(href='')
-                                    i.ri-linkedin-box-fill
-                .col-lg-6.mt-4
-                    .member.d-flex.align-items-start(data-aos='zoom-in' data-aos-delay='300')
-                        .pic
-                            img.img-fluid(src='assets/img/team/team-3.jpg' alt='')
-                        .member-info
-                            h4 William Anderson
-                            span CTO
-                            p Quisquam facilis cum velit laborum corrupti fuga rerum quia
-                            .social
-                                a(href='')
-                                    i.ri-twitter-fill
-                                a(href='')
-                                    i.ri-facebook-fill
-                                a(href='')
-                                    i.ri-instagram-fill
-                                a(href='')
-                                    i.ri-linkedin-box-fill
-                .col-lg-6.mt-4
-                    .member.d-flex.align-items-start(data-aos='zoom-in' data-aos-delay='400')
-                        .pic
-                            img.img-fluid(src='assets/img/team/team-4.jpg' alt='')
-                        .member-info
-                            h4 Amanda Jepson
-                            span Accountant
-                            p Dolorum tempora officiis odit laborum officiis et et accusamus
-                            .social
-                                a(href='')
-                                    i.ri-twitter-fill
-                                a(href='')
-                                    i.ri-facebook-fill
-                                a(href='')
-                                    i.ri-instagram-fill
-                                a(href='')
-                                    i.ri-linkedin-box-fill
+                h2 Bài học
+            .row.g-4
+                each item in obj.postData
+                    .col-lg-3
+                        a(href="#" style="color: inherit")
+                            .card
+                                img.card-img-top(src=item.thumbnail alt="Card image cap" height="250")
+                                .card-body
+                                    h6.card-text #{item.title}&nbsp
+                                        if item.name == 'Global Recipe'
+                                            span.badge.badge-warning
+                                                |  Premium
+                                        else if item.name == 'Asian Recipe' || item.name == 'European Recipe'
+                                            span.badge.badge-primary 
+                                                | Standard
+                                        else 
+                                            span.badge.badge-secondary 
+                                                | Member
+                                    p.m-0 Đăng ngày: #{item.created_at}
+                a.text-end(href="#") Xem thêm >>
     section#faq.faq.section-bg
         .container(data-aos='fade-up')
             .section-title
