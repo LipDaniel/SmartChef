@@ -8,7 +8,6 @@ module.exports = class post {
     thumbnail=''
     created_at=''
     constructor(title = "", content = "", categoryid = 0, thumbnail = '', created_at = '') {
-        
         this.title = title;
         this.content = content;
         this.categoryid = categoryid;

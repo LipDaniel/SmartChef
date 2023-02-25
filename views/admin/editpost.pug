@@ -1,0 +1,42 @@
+extends ../shared/adminlayout
+
+block Content
+    .container-fluid
+        h2.text-center EDIT POST 
+        each item in postData
+            form(action="/admin/editpost/"+item.id method="POST" enctype="multipart/form-data")
+                .row
+                    .col-md-9
+                        .card.card-body
+                            .form-group 
+                                input.form-control(type="text" name="title" placeholder="Title" value=item.title)
+                            textarea#editor1(name="content")
+                                | #{item.content}
+                            .form-group.mt-3 
+                                input.form-control(type="text" name="currentthumbnail" value=item.thumbnail hidden)
+                                input.form-control(type="file" name="thumbnail" onchange="loadFile(event)")
+                    .col-md-3 
+                        .card 
+                            .card-header.border-bottom.bg-dark
+                                h5.font-weight-bold.mb-0.text-light 
+                                    | Category
+                            .card-body.border-bottom
+                                each val in cateData
+                                    if item.name == val.name
+                                        .form-check.mb-2
+                                            input.form-check-input(value=val.id type="radio" name="category" id="flexRadioDefault1" checked)
+                                            label.form-check-label(for="flexRadioD efault1") #{val.name}
+                                    else 
+                                        .form-check.mb-2
+                                            input.form-check-input(value=val.id type="radio" name="category" id="flexRadioDefault1")
+                                            label.form-check-label(for="flexRadioD efault1") #{val.name}
+
+                            .card-footer
+                                .form-submit.mb-5
+                                    button.btn.btn-outline-success.float-right(type="submit") Publish
+                                    a.btn.btn-outline-secondary.mr-3.float-right Save
+                        .card.mt-3 
+                            .card-header.pb-0
+                                label.font-weight-bold Thumbnail (Recommend 1200 x 630)
+                            .card-body.pt-0
+                                img.w-100#blah(src="/upload/"+ item.thumbnail)

@@ -8,8 +8,6 @@ header#header.fixed-top
                     a.nav-link.scrollto.active(href='#hero') Trang chủ
                 li
                     a.nav-link.scrollto(href='#about') Về chúng tôi
-                li
-                    a.nav-link.scrollto(href='#team') Đánh giá
                 li.dropdown
                     a(href='#')
                         span Dịch vụ
@@ -40,8 +38,20 @@ header#header.fixed-top
                             a(href='#') Drop Down 4
                 li
                     a.nav-link.scrollto(href='#contact') Liên hệ
-                li
-                    a.scrollto(href='/login') Đăng nhập
+                if session.isLoggedIn
+                    li.dropdown
+                        a(href='#')
+                            span Chào #{session.username}
+                            i.bi.bi-chevron-down
+                        ul
+                            li
+                                a(href='#') Thông tin cá nhân
+                            li
+                                a(href='/logout') Đăng xuất 
+                        
+                else
+                    li
+                        a.scrollto(href='/login') Đăng nhập
             i.bi.bi-list.mobile-nav-toggle
 
 

@@ -2,6 +2,7 @@ const product = require('../Models/entities/product');
 const productDao = require('../models/dao/productdao');
 
 module.exports = class product_controller {
+
     addProduct(req, res, next) {
         var name = req.body.name;
         var price = req.body.price;
@@ -14,13 +15,7 @@ module.exports = class product_controller {
             var productItem = new product(name, price, cakere, asianre, eurore, globalre, message);
             var dao = new productDao();
             dao.Create(productItem);
-            dao.All((err, rows) => {
-                if(err){
-                    console.log(err)
-                }else{
-                    res.redirect('back');
-                }
-            })
+            res.redirect('/admin/product');
         }else{
             res.redirect('/admin/product')
         }

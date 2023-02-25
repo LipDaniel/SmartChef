@@ -1,0 +1,29 @@
+extends ../shared/userlayout
+
+block header 
+    include subheader 
+
+block main 
+    section#about.about
+        .container 
+            h2.text-center.text-uppercase Kiến thức ẩm thực    
+            .row.g-4
+                each item in dt
+                    .col-lg-3
+                        a(href="/post/"+item.id style="color: inherit")
+                            .card
+                                img.card-img-top(src="/upload/"+ item.thumbnail alt="Card image cap" height="250")
+                                .card-body
+                                    h6.card-text #{item.title}&nbsp
+                                        if item.name == 'Global Recipe'
+                                            span.badge.badge-warning
+                                                |  Premium
+                                        else if item.name == 'Asian Recipe' || item.name == 'European Recipe'
+                                            span.badge.badge-primary 
+                                                | Standard
+                                        else 
+                                            span.badge.badge-secondary 
+                                                | Member
+                                    p.m-0 Đăng ngày: #{item.created_at}
+block footer 
+    include footer

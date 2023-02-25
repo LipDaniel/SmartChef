@@ -7,19 +7,6 @@ block banner
     include banner
 
 block main 
-    style.
-        .badge-secondary {
-            color: #fff;
-            background-color: #6c757d;
-        }
-        .badge-warning {
-            color: #fff;
-            background-color: #ffc107;
-        }
-        .badge-primary {
-            color: #fff;
-            background-color: #007bff;
-        }
     section#clients.clients.section-bg
         .container
             .row(data-aos='zoom-in')
@@ -106,7 +93,11 @@ block main
                                     li
                                         i.bx.bx-check
                                         |  Message Chef
-                            a.buy-btn(href='#') Get Started
+                            if item.name != 'Member'
+                                a.buy-btn(href='/shoppingcart/'+item.id) Thêm vào giỏ hàng
+                            else 
+                                button#buyy-btn(href='/shoppingcart/'+item.id disabled) Thêm vào giỏ hàng
+
                     - delay += 100
     section#team.team.section-bg
         .container(data-aos='fade-up')
@@ -115,9 +106,9 @@ block main
             .row.g-4
                 each item in obj.postData
                     .col-lg-3
-                        a(href="#" style="color: inherit")
+                        a(href="/post/"+item.id style="color: inherit")
                             .card
-                                img.card-img-top(src=item.thumbnail alt="Card image cap" height="250")
+                                img.card-img-top(src="/upload/"+ item.thumbnail alt="Card image cap" height="250")
                                 .card-body
                                     h6.card-text #{item.title}&nbsp
                                         if item.name == 'Global Recipe'
@@ -130,7 +121,7 @@ block main
                                             span.badge.badge-secondary 
                                                 | Member
                                     p.m-0 Đăng ngày: #{item.created_at}
-                a.text-end(href="#") Xem thêm >>
+                a.text-end(href="/post") Xem thêm >>
     section#faq.faq.section-bg
         .container(data-aos='fade-up')
             .section-title

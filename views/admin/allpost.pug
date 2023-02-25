@@ -1,7 +1,10 @@
 extends ../shared/adminlayout
 
 block Content 
-    .container-fluid 
+    .container-fluid
+        if typeof msg != 'undefined' 
+            .alert.alert-success
+                | Update successfully
         h2.text-center ALL POST
         .card.card-body
             table.table.table-hover
@@ -19,13 +22,13 @@ block Content
                         tr
                             td.align-middle=i
                             td.align-middle 
-                                img.img-fluid(src=item.thumbnail width="100px") 
+                                img.img-fluid(src="/upload/"+ item.thumbnail width="100px" style="max-height:50px") 
                             td.align-middle 
-                                a(href="#") #{item.title} 
+                                a(href="/post/"+item.id) #{item.title} 
                             td.align-middle #{item.name}
                             td.align-middle 25/05/2019
                             td.align-middle 
-                                a.btn.btn-outline-secondary 
+                                a.btn.btn-outline-secondary(href="/admin/editpost/" + item.id) 
                                     img(src="https://img.icons8.com/ios-glyphs/15/A4A4A4/pencil--v2.png")
                         - i++
                     

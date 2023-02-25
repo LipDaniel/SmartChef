@@ -1,0 +1,51 @@
+extends ../shared/userlayout
+
+block header 
+    include subheader 
+
+block main 
+    section#about.about(style="background: #FFFAFA")
+        .container 
+            .row.bg-white(style="border: 1px solid rgba(0,0,0,0.175")
+                each item in data
+                    .col-md-8.p-3
+                        h4.fw-bold 
+                            | Giỏ hàng
+                        hr.mt-2
+                        .item-group.p-4(style="background: #ECECEC; border-radius: 10px")
+                            .row 
+                                .col-md-4
+                                    p.mb-0.fw-bold 1. #{item.name} Package
+                                .col-md-4 
+                                    p.mb-0.text-center x 1
+                                .col-md-4
+                                    - price = new Intl.NumberFormat('vi-VN', { maximumSignificantDigits: 3 }).format(item.price)
+                                    - tax = new Intl.NumberFormat('vi-VN', { maximumSignificantDigits: 3 }).format((item.price /100) * 10)
+                                    - total = new Intl.NumberFormat('vi-VN', { maximumSignificantDigits: 3 }).format(item.price + ((item.price /100) * 10))
+                                    p.mb-0.text-end #{price} VNĐ
+                        .mt-3
+                            a(href="/")
+                                .bi.bi-arrow-left 
+                                    | Back to home
+                    .col-md-4.p-3(style="background: #ECECEC")
+                        h4.fw-bold 
+                            | Thanh toán
+                        hr.mt-2
+                        .subtotal(style="height: 40px")
+                            p.d-inline.fw-bold  Subtotal 
+                            p.d-inline.float-end  #{price} VNĐ
+                        .tax(style="height: 40px")
+                            p.d-inline.fw-bold  Tax (10%)
+                            p.d-inline.float-end  #{tax} VNĐ
+                        .total(style="height: 40px")
+                            p.d-inline.fw-bold  Total 
+                            p.d-inline.float-end  #{total} VNĐ
+                        hr.mt-0
+                        button.btn.btn-dark.w-100
+                            img.me-2(src="/images/paypal.png" width="25px")
+                            | Checkout
+
+                            
+
+block footer 
+    include footer

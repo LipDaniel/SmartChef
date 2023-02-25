@@ -12,4 +12,9 @@ module.exports = class Setting{
         const myDate = dd + '/' + mm + '/' + yyyy;
         return myDate;
     }
+    Removefile(file){
+        const fs = require('fs')
+        fs.unlinkSync("C:/xampp/htdocs/SmartChef/public/upload/" + file)
+    }
+
 }

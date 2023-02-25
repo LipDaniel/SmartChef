@@ -1,0 +1,59 @@
+header#header(style="background-color: #37517e") 
+    .container.d-flex.align-items-center
+        h5.logo.me-auto
+            a.text-light(href='#') SmartChef
+        nav#navbar.navbar
+            ul
+                li
+                    a.nav-link.scrollto.active(href='#hero') Trang chủ
+                li
+                    a.nav-link.scrollto(href='#about') Về chúng tôi
+                li
+                    a.nav-link.scrollto(href='#team') Đánh giá
+                li.dropdown
+                    a(href='#')
+                        span Dịch vụ
+                        i.bi.bi-chevron-down
+                    ul
+                        li
+                            a(href='#') Drop Down 1
+                        li.dropdown
+                            a(href='#')
+                                span Deep Drop Down
+                                i.bi.bi-chevron-right
+                            ul
+                                li
+                                    a(href='#') Deep Drop Down 1
+                                li
+                                    a(href='#') Deep Drop Down 2
+                                li
+                                    a(href='#') Deep Drop Down 3
+                                li
+                                    a(href='#') Deep Drop Down 4
+                                li
+                                    a(href='#') Deep Drop Down 5
+                        li
+                            a(href='#') Drop Down 2
+                        li
+                            a(href='#') Drop Down 3
+                        li
+                            a(href='#') Drop Down 4
+                li
+                    a.nav-link.scrollto(href='#contact') Liên hệ
+                if session.isLoggedIn
+                    li.dropdown
+                        a(href='#')
+                            span Xin chào #{session.username} !
+                            i.bi.bi-chevron-down
+                        ul
+                            li
+                                a(href='#') Thông tin cá nhân
+                            li
+                                a(href='/logout') Đăng xuất 
+                        
+                else
+                    li
+                        a.scrollto(href='/login') Đăng nhập
+            i.bi.bi-list.mobile-nav-toggle
+
+
