@@ -44,6 +44,7 @@ module.exports = class login_controller {
                     if(kq){
                         var sess = req.session;  //initialize session variable
                         sess.isLoggedIn = true;
+                        sess.iduser = element.id;
                         sess.email = element.email;
                         sess.username = element.firstname;
                         sess.phone = element.phone; 

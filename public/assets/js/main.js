@@ -12,6 +12,7 @@ function showLogin(){
   $('#loginform').show(300);
   $('#registerform').hide(300);
 }
+
 (function() {
   "use strict";
 

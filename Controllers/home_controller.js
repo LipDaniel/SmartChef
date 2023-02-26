@@ -1,5 +1,7 @@
 const PostDao = require('../models/dao/postdao');
 const productDao = require('../models/dao/productdao');
+const billDao = require('../models/dao/billdao');
+const Bill = require('../models/entities/bill');
 
 module.exports = class home_controller {
     getHomePage(req, res, next){
@@ -20,7 +22,7 @@ module.exports = class home_controller {
             }
         })
     }
-    getShoppingCard(req, res, next){
+    getShoppingCart(req, res, next){
         var id = req.params.id;
         var dao = new productDao();
         dao.getProductFromId(id, (err, rows) => {
@@ -33,5 +35,15 @@ module.exports = class home_controller {
                 }
             }
         })
+    }
+    postShoppingCart(req,res,next){
+        var customer_id = req.body.customerid;
+        var product_id = req.body.productid;
+        var total = req.body.total;
+        var item = new Bill(customer_id, product_id, total);
+        var dao = new billDao();
+        dao.addBillAndupdate(item);
+        req.session.level = product_id;
+        res.redirect('/');
     }
 }

@@ -128,14 +128,14 @@ module.exports = class post_controller {
                                     if(element.category_id <= 20 ){
                                         res.render('user/post', {article: article, posts: posts})
                                     }else{
-                                        res.redirect('/')
+                                        res.redirect('/shoppingcart/27')
                                     }
                                 }
                                 if(req.session.level == 25){
                                     if(element.category_id == 18){
                                         res.render('user/post', {article: article, posts: posts})
                                     }else{
-                                        res.redirect('/')
+                                        res.redirect('/shoppingcart/26')
                                     }
                                 }
                             })

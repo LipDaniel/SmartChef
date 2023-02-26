@@ -78,7 +78,7 @@ module.exports = class PostDao {
             if (err) console.log(err);
             var request = new sql.Request();
             try {
-                request.query(`Select p.id, p.title, p.content, p.created_at, p.thumbnail, p.category_id c.name from post p join category c on p.category_id = c.id order by p.id desc`, function (err, result) {
+                request.query(`Select p.id, p.title, p.content, p.created_at, p.thumbnail, p.category_id, c.name from post p join category c on p.category_id = c.id order by p.id desc`, function (err, result) {
                     if (err) {
                         callback(err, null);
                     } else {

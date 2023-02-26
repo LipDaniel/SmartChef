@@ -94,8 +94,17 @@ block main
                                         i.bx.bx-check
                                         |  Message Chef
                             if item.name != 'Member'
-                                a.buy-btn(href='/shoppingcart/'+item.id) Thêm vào giỏ hàng
-                            else 
+                                if session.isLoggedIn 
+                                    if session.level != item.id
+                                        if session.level != 27
+                                            a.buy-btn(href='/shoppingcart/'+item.id) Thêm vào giỏ hàng
+                                        else 
+                                            button#buyy-btn(href='/shoppingcart/'+item.id disabled) Thêm vào giỏ hàng
+                                    else 
+                                        button#buyy-btn(href='/shoppingcart/'+item.id disabled) Thêm vào giỏ hàng
+                                else
+                                    a.buy-btn(href='/shoppingcart/'+item.id) Thêm vào giỏ hàng
+                            else
                                 button#buyy-btn(href='/shoppingcart/'+item.id disabled) Thêm vào giỏ hàng
 
                     - delay += 100
@@ -216,6 +225,8 @@ block main
                             .sent-message Your message has been sent. Thank you!
                         .text-center
                             button(type='submit') Send Message
+    
+
 block footer 
     include footer
     

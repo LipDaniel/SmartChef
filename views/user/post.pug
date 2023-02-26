@@ -35,7 +35,7 @@ block main
                                 .row(style="max-height: 70px") 
                                     .col-md-4.p-0.ps-3
                                         a(href="/post/"+item.id style="color: inherit")
-                                            img.w-100.h-100(src="/upload/"+item.thumbnail style="border-radius:10px")
+                                            img.w-100.h-100(src="/upload/"+item.thumbnail style="border-radius:10px; max-height: 100px")
                                     .col-md-8
                                         a(href="/post/"+item.id style="color: inherit")
                                             p.fw-bold.text-truncate.m-0.text-primary #{item.title}
