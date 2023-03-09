@@ -53,6 +53,9 @@ body#bg-login
                   .p-5
                     .text-center
                       h1.h4.text-gray-900.mb-4 ĐĂNG KÝ
+                      if session.errsignup 
+                        .alert.alert-danger 
+                          | #{session.errsignup}
                     form(action="/login/register" method="POST")
                       .user
                         .form-group.mb-2

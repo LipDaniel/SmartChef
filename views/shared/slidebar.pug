@@ -4,45 +4,28 @@ ul#accordionSidebar.navbar-nav.sidebar.sidebar-secondary.accordion
             img(src='/asset/img/logo/logo2.png')
         .sidebar-brand-text.mx-3 SMARTCHEF
     hr.sidebar-divider.my-0
-    li.nav-item.active
-        a.nav-link(href='index.html')
-            i.fas.fa-fw.fa-tachometer-alt
-            span Dashboard
-    hr.sidebar-divider
-    .sidebar-heading
+
+    .sidebar-heading.mt-3
         | Features
     li.nav-item
         a.nav-link.collapsed(href='#' data-toggle='collapse' data-target='#collapseForm' aria-expanded='true' aria-controls='collapseForm')
             i.fab.fa-fw.fa-wpforms
-            span Post
+            span Bài đăng
         #collapseForm.collapse(aria-labelledby='headingForm' data-parent='#accordionSidebar')
             .bg-white.py-2.collapse-inner.rounded
-                h6.collapse-header Post
-                a.collapse-item(href='/admin/allpost') All Post
-                a.collapse-item(href='/admin/post') New Post
+                h6.collapse-header Bài đăng
+                a.collapse-item(href='/admin/allpost') Tất cả bài đăng
+                a.collapse-item(href='/admin/post') Tạo bài đăng
     li.nav-item
         a.nav-link(href='/admin/product')
-            i.fas.fa-fw.fa-palette
-            span Product
+            i.fa-brands.fa-product-hunt
+            span Sản phẩm
     li.nav-item
-        a.nav-link(href='/admin/product')
+        a.nav-link(href='/admin/faq')
             i.fas.fa-fw.fa-palette
             span FAQ
+    li.nav-item
+        a.nav-link(href='/admin/message')
+            i.fa-solid.fa-envelope
+            span Tin nhắn
     hr.sidebar-divider
-    .sidebar-heading
-        | Examples
-    li.nav-item
-        a.nav-link.collapsed(href='#' data-toggle='collapse' data-target='#collapsePage' aria-expanded='true' aria-controls='collapsePage')
-            i.fas.fa-fw.fa-columns
-            span Pages
-        #collapsePage.collapse(aria-labelledby='headingPage' data-parent='#accordionSidebar')
-            .bg-white.py-2.collapse-inner.rounded
-                h6.collapse-header Example Pages
-                a.collapse-item(href='login.html') Login
-                a.collapse-item(href='register.html') Register
-                a.collapse-item(href='404.html') 404 Page
-                a.collapse-item(href='blank.html') Blank Page
-    li.nav-item
-        a.nav-link(href='charts.html')
-            i.fas.fa-fw.fa-chart-area
-            span Charts

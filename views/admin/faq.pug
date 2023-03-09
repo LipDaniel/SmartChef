@@ -1,0 +1,29 @@
+extends ../shared/adminlayout
+
+block Content
+    .container-fluid.p-3
+        .row
+            .col-md-6
+                .card.p-3
+                    form(method="POST" action="/admin/faq/add")
+                        h3.text-center.mb-3 Smart form 
+                        .form-group 
+                            input.form-control(type="text" name="question" placeholder="Nhập câu hỏi")
+                        .form-group 
+                            textarea.form-control(name="answer", cols="30", rows="10" value="Nhập câu trả lời") 
+                        .form-submit 
+                            button.btn.btn-outline-success(type="submit") Thêm FAQ
+            .col-md-6
+                .card.p-3
+                    h3.text-center.mb-3 FAQ 
+                    #accordion
+                        each item in data
+                            #headingOne.card-header
+                                h4.mb-0.w-100
+                                    button.btn.w-100.btn-light.text-dark(data-toggle='collapse' data-target='#content'+item.id aria-expanded='true' aria-controls='collapseOne')
+                                        | #{item.question}
+                            .collapse(id="content"+item.id aria-labelledby='headingOne' data-parent='#accordion')
+                                .card-body
+                                    | #{item.answer}
+
+

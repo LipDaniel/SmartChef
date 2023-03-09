@@ -13,29 +13,40 @@ header#header.fixed-top
                         span Dịch vụ
                         i.bi.bi-chevron-down
                     ul
-                        li
-                            a(href='#') Drop Down 1
-                        li.dropdown
-                            a(href='#')
-                                span Deep Drop Down
-                                i.bi.bi-chevron-right
-                            ul
-                                li
-                                    a(href='#') Deep Drop Down 1
-                                li
-                                    a(href='#') Deep Drop Down 2
-                                li
-                                    a(href='#') Deep Drop Down 3
-                                li
-                                    a(href='#') Deep Drop Down 4
-                                li
-                                    a(href='#') Deep Drop Down 5
-                        li
-                            a(href='#') Drop Down 2
-                        li
-                            a(href='#') Drop Down 3
-                        li
-                            a(href='#') Drop Down 4
+                        each item in obj.cateData
+                            li.dropdown
+                                a(href="#")
+                                    span #{item.name}
+                                    i.bi.bi-chevron-right
+                                ul 
+                                    each items in obj.allPost
+                                        if items.category_id == item.id
+                                            li
+                                                a(href="/post/"+items.id) #{items.title}
+
+                        //- li
+                        //-     a(href='#') Drop Down 1
+                        //- li.dropdown
+                        //-     a(href='#')
+                        //-         span Deep Drop Down
+                        //-         i.bi.bi-chevron-right
+                        //-     ul
+                        //-         li
+                        //-             a(href='#') Deep Drop Down 1
+                        //-         li
+                        //-             a(href='#') Deep Drop Down 2
+                        //-         li
+                        //-             a(href='#') Deep Drop Down 3
+                        //-         li
+                        //-             a(href='#') Deep Drop Down 4
+                        //-         li
+                        //-             a(href='#') Deep Drop Down 5
+                        //- li
+                        //-     a(href='#') Drop Down 2
+                        //- li
+                        //-     a(href='#') Drop Down 3
+                        //- li
+                        //-     a(href='#') Drop Down 4
                 li
                     a.nav-link.scrollto(href='#contact') Liên hệ
                 if session.isLoggedIn

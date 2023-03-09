@@ -2,11 +2,15 @@ const PostDao = require('../models/dao/postdao');
 const productDao = require('../models/dao/productdao');
 const billDao = require('../models/dao/billdao');
 const Bill = require('../models/entities/bill');
+const faqDao = require('../models/dao/faqdao');
+const cateDao = require('../models/dao/categorydao');
 
 module.exports = class home_controller {
     getHomePage(req, res, next){
         var product = new productDao();
         var post = new PostDao();
+        var faq = new faqDao();
+        var cate = new cateDao();
         const obj = new Object();
         post.All8((err, rs) => {
             if(err) console.log(err);
@@ -16,7 +20,25 @@ module.exports = class home_controller {
                     if(err) console.log(err); 
                     else{
                         obj.productData = rows.recordset
-                        res.render('user/home', { obj: obj })
+                        faq.All((err, rows) => {
+                            if(err) console.log(err)
+                            else{
+                                obj.faqData = rows.recordset
+                                cate.All((err, rows) => {
+                                    if (err) console.log(err);
+                                    else{
+                                        obj.cateData = rows.recordset
+                                        post.All((err, rows) => {
+                                            if (err) console.log(err);
+                                            else{
+                                                obj.allPost = rows.recordset
+                                                res.render('user/home', { obj: obj })
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
                     } 
                 })
             }

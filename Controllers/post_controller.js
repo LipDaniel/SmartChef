@@ -1,11 +1,10 @@
 const post = require('../Models/entities/post');
+const comment = require('../Models/entities/comment');
 const postDao = require('../models/dao/postdao');
+const commentDao = require('../models/dao/commentdao');
 const categoryDao = require('../models/dao/categorydao');
 const Setting = require('./Setting');
 const path = require('path');
-const mv = require('mv');
-const { readvSync } = require('fs');
-const { resolveSoa } = require('dns');
 
 module.exports = class post_controller {
 
@@ -111,6 +110,9 @@ module.exports = class post_controller {
         var dao = new postDao();
         var article;
         var posts;
+        var commentsDao = new commentDao();
+        var comments;
+        var subCmt;
         dao.GetPostFromId(req.params.id, (err, rows) => {
             if (err) console.log(err) 
             else {
@@ -119,29 +121,41 @@ module.exports = class post_controller {
                     if (err) console.log(err)
                     else{
                         posts = rs.recordset;
-                        if(req.session.isLoggedIn){
-                            article.forEach(element => {
-                                if(req.session.level == 27){
-                                    res.render('user/post', {article: article, posts: posts})
-                                }
-                                if(req.session.level == 26){
-                                    if(element.category_id <= 20 ){
-                                        res.render('user/post', {article: article, posts: posts})
-                                    }else{
-                                        res.redirect('/shoppingcart/27')
+                        commentsDao.All(req.params.id, (err, rows) => {
+                            if (err) console.log(err)
+                            else{
+                                comments = rows.recordset;
+                                commentsDao.subCmt(req.params.id, (err, rows) => {
+                                    if (err) console.log(err);
+                                    else{
+                                        subCmt = rows.recordset;
+                                        if(req.session.isLoggedIn){
+                                            article.forEach(element => {
+                                                if(req.session.level == 27){
+                                                    res.render('user/post', {article: article, posts: posts, comments: comment, subcmt: subCmt})
+                                                }
+                                                if(req.session.level == 26){
+                                                    if(element.category_id <= 20 ){
+                                                        res.render('user/post', {article: article, posts: posts, comments: comments, subcmt: subCmt})
+                                                    }else{
+                                                        res.redirect('/shoppingcart/27')
+                                                    }
+                                                }
+                                                if(req.session.level == 25){
+                                                    if(element.category_id == 18){
+                                                        res.render('user/post', {article: article, posts: posts, comments: comments, subcmt: subCmt})
+                                                    }else{
+                                                        res.redirect('/shoppingcart/26')
+                                                    }
+                                                }
+                                            })
+                                        }else{
+                                            res.redirect('/login')
+                                        }
                                     }
-                                }
-                                if(req.session.level == 25){
-                                    if(element.category_id == 18){
-                                        res.render('user/post', {article: article, posts: posts})
-                                    }else{
-                                        res.redirect('/shoppingcart/26')
-                                    }
-                                }
-                            })
-                        }else{
-                            res.redirect('/login')
-                        }
+                                })
+                            }
+                        })
                     }
                 })
             }
@@ -149,6 +163,7 @@ module.exports = class post_controller {
     }
 
     getCategory(req, res, next) {
+        if(req.session.isLoggedIn)
         var dao = new categoryDao();
         dao.All((err, rows) => {
             if (err) {
@@ -157,6 +172,14 @@ module.exports = class post_controller {
                 res.render('admin/post', {dt: rows.recordset})
             }
         })
+    }
+
+    postComments(req,res,next){
+        var item = new comment(req.body.postid, req.body.userid, req.body.comments, req.body.created_at, req.body.cmt_id);
+        var dao = new commentDao();
+        dao.Create(item);
+        var msg = 'success'
+        return msg;
     }
 
 }

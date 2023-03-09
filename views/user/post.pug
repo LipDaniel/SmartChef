@@ -24,8 +24,67 @@ block main
                         each item in article
                             h2.mb-4.text-center.text-uppercase=item.title
                             img.w-100.mb-3(height="400px", src="/upload/"+ item.thumbnail style="border-radius:20px")
-                            div
+                            div.text-justify
                                 | !{item.content}
+                            input#idpost(type="text" value=item.id hidden)
+                        .row.mt-3
+                            .col-md-2.pe-0
+                                - let countCmt = comments.length + subcmt.length
+                                p.fw-bold(style="font-size: 22px") #{countCmt} Comments
+                            .col-md-9
+                                hr
+                            .col-md-12
+                                #listcomment
+                                    if comments.length != 0
+                                        each item in comments
+                                            .card-body.pb-0(id="card-"+item.id)
+                                                .d-flex.flex-start.align-items-center
+                                                    img.rounded-circle.shadow-1-strong.me-3(src='https://anhcuoiviet.vn/wp-content/uploads/2022/11/avatar-hai-huoc-5.jpg' alt='' width='40' height='40')
+                                                    div
+                                                        h6.fw-bold.text-primary.mb-1 #{item.firstname}
+                                                        p.text-muted.small.mb-0 #{item.created_at}
+                                                .row
+                                                    .col-md-9
+                                                        p.mt-2
+                                                            | #{item.content}
+                                                    .col-md-3.small.d-flex.justify-content-end
+                                                        a.d-flex.align-items-center.me-3(style="cursor: pointer;")
+                                                            i.bi.bi-hand-thumbs-up
+                                                            p.mb-0 Thích
+                                                        a.d-flex.align-items-center.me-3.replyCmt(style="cursor: pointer;" data-title=item.id data-name=item.firstname)
+                                                            i.bi.bi-reply
+                                                            p.mb-0 Trả lời
+                                                each items in subcmt
+                                                    if items.cmt_id == item.id
+                                                        .row 
+                                                            .col-md-1
+                                                            .col-md-11.border-top 
+                                                                .card-body.pb-0
+                                                                    .d-flex.flex-start.align-items-center
+                                                                        img.rounded-circle.shadow-1-strong.me-3(src='https://anhcuoiviet.vn/wp-content/uploads/2022/11/avatar-hai-huoc-5.jpg' alt='' width='40' height='40')
+                                                                        div
+                                                                            h6.fw-bold.text-primary.mb-1 #{items.firstname}
+                                                                            p.text-muted.small.mb-0 #{items.created_at}
+                                                                    p.mt-2.mb-0
+                                                                        | #{items.content}
+                                                hr.mb-0(id="horiline-"+item.id)
+                                    else 
+                                        .text-center.mb-4#nocomment No comments
+                                .card-footer
+                                    .row.gy-2 
+                                        .col-md-1
+                                            img.rounded-circle.img-thumbnail(src="https://anhcuoiviet.vn/wp-content/uploads/2022/11/avatar-hai-huoc-5.jpg")
+                                        .col-md-11
+                                            #reply-group
+                                            input#replyAddress(type="checkbox" hidden)
+                                            input#username(type="text" value=session.username hidden)
+                                            input#userid(type="text" value=session.iduser hidden)
+                                            .form-group
+                                                textarea.form-control#comments(rows="4")
+                                                div#alert 
+                                        .col-md-12
+                                            button.float-end.btn.btn-primary(onclick="postComment();") Đăng
+
                 .col-md-3 
                     .card
                         .card-header
